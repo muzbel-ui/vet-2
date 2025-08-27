@@ -33,8 +33,8 @@
         }
         
         .appointment-form {
-            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%);
-            backdrop-filter: blur(10px);
+            background: (white);
+            backdrop-filter: black(10px);
         }
         
         .floating-label {
@@ -62,7 +62,7 @@
         }
         
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: #030303;
         }
         
         ::-webkit-scrollbar-thumb {
@@ -74,6 +74,16 @@
             background: #4338ca;
         }
     </style>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "g3RRCS66xM4rVcYoH",
+      });
+   })();
+</script>
 </head>
 <body class="font-sans antialiased text-gray-800">
     <!-- Emergency Contact Bar -->
@@ -100,7 +110,6 @@
                     <div class="hidden md:ml-10 md:flex md:space-x-8">
                         <a href="#" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
                         <a href="#services" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Services</a>
-                        <a href="#doctors" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Our Team</a>
                         <a href="#about" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">About</a>
                         <a href="#testimonials" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Testimonials</a>
                         <a href="#contact" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
@@ -427,131 +436,6 @@
         </div>
     </section>
 
-    <!-- Appointment Section -->
-    <section id="appointment" class="py-16 bg-indigo-700 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
-                <div class="mb-12 lg:mb-0">
-                    <h2 class="text-3xl font-extrabold sm:text-4xl mb-6">Schedule an Appointment</h2>
-                    <p class="text-lg mb-6">We're here to help your pet live their healthiest, happiest life. Schedule an appointment today and experience the 
-                        zolace difference.</p>
-                    
-                    <div class="bg-indigo-800 p-6 rounded-lg mb-6">
-                        <h3 class="text-xl font-bold mb-4">Clinic Hours</h3>
-                        <ul class="space-y-2">
-                            <li class="flex justify-between">
-                                <span>Monday - Friday</span>
-                                <span>8:00 AM - 6:00 PM</span>
-                            </li>
-                            <li class="flex justify-between">
-                                <span>Saturday</span>
-                                <span>9:00 AM - 4:00 PM</span>
-                            </li>
-                            <li class="flex justify-between">
-                                <span>Sunday</span>
-                                <span>Emergency Only</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="flex items-center">
-                        <div class="bg-white p-3 rounded-full mr-4">
-                            <i class="fas fa-phone-alt text-indigo-700 text-xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-sm">For immediate assistance, call us at</p>
-                            <a href="tel:5559876543" class="text-2xl font-bold hover:text-indigo-200">08184865755</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="appointment-form p-6 rounded-lg shadow-xl">
-                    <form id="appointmentForm" class="space-y-4">
-                        <div class="relative">
-                            <select id="service" class="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
-                                <option value="" disabled selected>Select Service</option>
-                                <option value="wellness">Wellness Exam</option>
-                                <option value="vaccination">Vaccinations</option>
-                                <option value="surgery">Surgical Consultation</option>
-                                <option value="dental">Dental Cleaning</option>
-                                <option value="grooming">Grooming</option>
-                                <option value="boarding">Boarding</option>
-                                <option value="emergency">Emergency Visit</option>
-                            </select>
-                            <label for="service" class="absolute floating-label text-gray-700">Service</label>
-                        </div>
-                        
-                        <div class="relative">
-                            <select id="doctor" class="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-                                <option value="" disabled selected>Preferred Veterinarian (Optional)</option>
-                                <option value="johnson">Dr. Johnson</option>
-                                <option value="chen">Dr. Chen</option>
-                                <option value="rodriguez">Dr. Rodriguez</option>
-                                <option value="any">Any Available Doctor</option>
-                            </select>
-                            <label for="doctor" class="absolute floating-label text-gray-700">Veterinarian</label>
-                        </div>
-                        
-                        <div class="relative">
-                            <input type="text" id="petName" class="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
-                            <label for="petName" class="absolute floating-label text-gray-700">Pet's Name</label>
-                        </div>
-                        
-                        <div class="relative">
-                            <select id="petType" class="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
-                                <option value="" disabled selected>Pet Type</option>
-                                <option value="dog">Dog</option>
-                                <option value="cat">Cat</option>
-                                <option value="bird">Bird</option>
-                                <option value="rabbit">Rabbit</option>
-                                <option value="reptile">Reptile</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <label for="petType" class="absolute floating-label text-gray-700">Pet Type</label>
-                        </div>
-                        
-                        <div class="relative">
-                            <input type="date" id="appointmentDate" class="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
-                            <label for="appointmentDate" class="absolute floating-label text-gray-700">Preferred Date</label>
-                        </div>
-                        
-                        <div class="relative">
-                            <input type="time" id="appointmentTime" class="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
-                            <label for="appointmentTime" class="absolute floating-label text-gray-700">Preferred Time</label>
-                        </div>
-                        
-                        <div class="relative">
-                            <input type="text" id="ownerName" class="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
-                            <label for="ownerName" class="absolute floating-label text-gray-700">Your Name</label>
-                        </div>
-                        
-                        <div class="relative">
-                            <input type="email" id="email" class="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
-                            <label for="email" class="absolute floating-label text-gray-700">Email</label>
-                        </div>
-                        
-                        <div class="relative">
-                            <input type="tel" id="phone" class="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
-                            <label for="phone" class="absolute floating-label text-gray-700">Phone Number</label>
-                        </div>
-                        
-                        <div class="relative">
-                            <textarea id="notes" rows="3" class="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" "></textarea>
-                            <label for="notes" class="absolute floating-label text-gray-700">Special Notes (Optional)</label>
-                        </div>
-                        
-                        <div>
-                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">
-                                Request Appointment
-                                <i class="fas fa-calendar-check ml-2"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Pet Health Tips Section -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -852,6 +736,16 @@
     </div>
 
     <script>
+             function sendMail(){
+                let parms = {
+                contactname : document.getElementById(contactName).value,
+                contactemail : document.getElementById(contactEmail).value,
+                contactphone : document.getElementById(contactPhone).value,
+                contactsubject : document.getElementById(contactSubject).value,
+                contactmessage : document.getElementById(contactMessage).value,
+            }   
+        }
+        emailjs.sendMail(service_up9xgzi,"template_rpflx1m",parms).then(alert("success") )
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
