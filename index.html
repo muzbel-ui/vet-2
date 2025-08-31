@@ -78,12 +78,11 @@
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
     <script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "g3RRCS66xM4rVcYoH",
-      });
-   })();
+     (function(){
+     emailjs.init("g3RRCS66xM4rVcYoH");
+     })();
 </script>
+
 </head>
 <body class="font-sans antialiased text-gray-800">
     <!-- Emergency Contact Bar -->
@@ -624,7 +623,7 @@
                         </div>
                         
                         <div>
-                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">
+                            <button type="submit" onclick="Sendmail()" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">
                                 Send Message
                                 <i class="fas fa-paper-plane ml-2"></i>
                             </button>
@@ -736,16 +735,18 @@
     </div>
 
     <script>
-             function sendMail(){
-                let parms = {
+        function sendMail(){
+            let parms = {
                 contactname : document.getElementById(contactName).value,
                 contactemail : document.getElementById(contactEmail).value,
                 contactphone : document.getElementById(contactPhone).value,
                 contactsubject : document.getElementById(contactSubject).value,
                 contactmessage : document.getElementById(contactMessage).value,
-            }   
+            }
+
+            emailjs.send("service_up9xgzi","template_zm201fb",parms).then(alert("successfull!!!")) 
         }
-        emailjs.sendMail(service_up9xgzi,"template_rpflx1m",parms).then(alert("success") )
+        
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
